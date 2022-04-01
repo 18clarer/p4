@@ -1,0 +1,105 @@
+{% extends 'base.html' %} {% block title %}Registrar Search Page{% endblock %}
+{% block content %}
+
+<div class="container-fluid" style="background-color: #295078; color: white">
+  <div class="row">
+    <div class="col-12">
+      <center>
+        <h1>Registrar's Office: Class Search</h1>
+      </center>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <input
+        type="text"
+        name="dept"
+        id="dept"
+        class="form-control"
+        placeholder="Department"
+      />
+    </div>
+    <div class="col-sm-3">
+      <input
+        type="text"
+        name="coursenum"
+        id="coursenum"
+        class="form-control"
+        placeholder="Number"
+      />
+    </div>
+    <div class="col-sm-3">
+      <input
+        type="text"
+        name="area"
+        id="area"
+        class="form-control"
+        placeholder="Area"
+      />
+    </div>
+    <div class="col-sm-3">
+      <input
+        type="text"
+        name="title"
+        id="title"
+        class="form-control"
+        placeholder="Title"
+      />
+    </div>
+  </div>
+  <br />
+</div>
+<div class="container-fluid" id="classes">{% include 'classes.html' %}</div>
+{% include 'footer.html' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- jQuery stuff -->
+<script>
+  "use strict";
+
+  function handleResponse(response) {
+    $("#classes").html(response);
+  }
+
+  let request = null;
+
+  function handle_input() {
+    let dept = encodeURIComponent($("#dept").val());
+    let coursenum = encodeURIComponent($("#coursenum").val());
+    let area = encodeURIComponent($("#area").val());
+    let title = encodeURIComponent($("#title").val());
+
+    let url =
+      "/results?dept=" +
+      dept +
+      "&coursenum=" +
+      coursenum +
+      "&area=" +
+      area +
+      "&title=" +
+      title;
+
+    if (request != null) request.abort();
+
+    request = $.ajax({
+      type: "GET",
+      url: url,
+      success: handleResponse,
+    });
+  }
+
+  function setup() {
+    $("#dept").on("input", handle_input);
+    $("#coursenum").on("input", handle_input);
+    $("#area").on("input", handle_input);
+    $("#title").on("input", handle_input);
+
+    handle_input();
+  }
+
+  $("document").ready(setup);
+</script>
+
+{% endblock %}

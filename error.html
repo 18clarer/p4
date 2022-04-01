@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block title %} Error Page {% endblock %} {% block
+content %}
+<div class="container-fluid" style="background-color: #295078; color: white">
+  <center>
+    <h1>Registrar's Office: Error</h1>
+  </center>
+</div>
+<div class="container-fluid">
+  <br />
+  <p>{{ error_message }}</p>
+  <br />
+</div>
+
+{% include 'footer.html' %} {% endblock %}

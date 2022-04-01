@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %}Class Details{% endblock %} {% block
+content %}
+
+<div class="container-fluid" style="background-color: #295078; color: white">
+  <center>
+    <h1>Registrar's Office: Class Details</h1>
+  </center>
+</div>
+
+<div class="container-fluid">
+  <!-- add the class details -->
+  <h2>Class Details (class id {{classid}})</h2>
+  <strong>Course Id: </strong>{{ details['courseid'] }} <br />
+  <strong>Days: </strong>{{ details['days'] }} <br />
+  <strong>Start time: </strong>{{ details['starttime'] }} <br />
+  <strong>End time: </strong>{{ details['endtime'] }} <br />
+  <strong>Building: </strong>{{ details['bldg'] }} <br />
+  <strong>Room: </strong>{{ details['roomnum'] }}
+  <hr />
+
+  <!-- add the course details -->
+  <h2>Course Details (course id {{ details['courseid'] }})</h2>
+  {% for dept, num in details['dept_and_num'] %}
+  <strong>Dept and Number: </strong>{{dept}} {{num}}<br />
+  {% endfor %}
+  <strong>Area: </strong>{{ details['area'] }} <br />
+  <strong>Title: </strong>{{ details['title'] }} <br />
+  <strong>Description: </strong>{{ details['descrip'] }} <br />
+  <strong>Prerequisites: </strong>{{ details['prereqs'] }} <br />
+  {% for prof in details['profnames'] %}
+  <strong>Professor: </strong>{{ prof[0] }}
+</div>
+<br><br>
+
+{% endfor %} {% include 'footer.html' %} {% endblock %}
