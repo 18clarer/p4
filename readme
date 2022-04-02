@@ -1,0 +1,33 @@
+rclare_mgodoy
+
+Names: Ryan Clare, Mateo Godoy
+Assignment Number: 4
+
+Contributions: (just gonna use the third person because it's easier)
+    We did partner programming on this assignment / worked together on pretty much everything. Ryan 
+    focused mainly on changing the front end of the site. Changing the html pages around to fit the
+    assignment specifications. He also used bootstrap to make the pages responsive to the browser
+    size. He further changed the organization of the site to include a base.html file that the 
+    other templates on the site extend. Similarly, Ryan created a classes.html file that contains 
+    all the html code for the class details list which is updated when a user types in one of the
+    input text fields. This made it easier to integrate the page with AJAX/JQuery since we just had
+    to reload the classes.html template.
+
+    Even though we worked together on most of the assignment, Mateo focused on the AJAX/JQuery
+    code and integrating that with the database. He created two new functions in the
+    main view controller file flask_app.py. He created an index_controller() function that serves
+    the initial searchform.html template to the user. He also created a search_form() function that
+    works with the jQuery code in searchform.html to reload the table of class details. In conjuction 
+    with this function, Mateo wrote most of the jQuery code in searchform.html which updates the 
+    table of class details whenever the user changes the input in one of the text input fields. 
+
+    We both tested the program individually, according to the assignment specifications. In summary,
+    I would say that the division of work was very even and we both got a lot out of the assignment.
+  
+
+Help Received: None
+Sources of Information Used: Course materials (mostly just code handouts from the server side javascript
+lectures) 
+Time Spent: 10 hours
+Assessment of assignment: We both felt that this assignment was the best of the semester. Learning the
+jQuery stuff was super useful, especially for our semester project.
